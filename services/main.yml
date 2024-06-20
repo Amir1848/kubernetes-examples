@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mytestwebserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: mytestwebserver
+  template:
+    metadata:
+      name: mytestwebserver
+      labels:
+        app: mytestwebserver
+    spec:
+      containers:
+        - name: mytestwebserver
+          image: docker.arvancloud.ir/nginx:latest
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mytestwebserver-service
+spec:
+  selector:
+    app: mytestwebserver
+  ports:
+    - port: 80
+      targetPort: 80
