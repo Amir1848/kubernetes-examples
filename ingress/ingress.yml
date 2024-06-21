@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  labels:
+    name: myingress
+spec:
+  rules:
+  - host: amir.ir
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: amirpodservice
+            port: 
+              number: 80
+  - host: ehsan.ir
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: ehsanpodservice
+            port: 
+              number: 80

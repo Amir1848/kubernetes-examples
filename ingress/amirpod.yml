@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: amirpod
+  labels:
+    name: amirpod
+spec:
+  containers:
+  - name: amirpod
+    env:
+      - name: NAME
+        value: AMIR
+    image: 192.168.49.1:5000/mywebserver2:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8082

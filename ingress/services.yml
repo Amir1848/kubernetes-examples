@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: amirpodservice
+spec:
+  selector:
+    name: amirpod
+  ports:
+  - port: 80
+    targetPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ehsanpodservice
+spec:
+  selector:
+    name: ehsanpod
+  ports:
+  - port: 80
+    targetPort: 8082

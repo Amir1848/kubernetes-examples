@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ehsanpod
+  labels:
+    name: ehsanpod
+spec:
+  containers:
+  - name: ehsanpod
+    env:
+      - name: NAME
+        value: EHSAN
+    image: 192.168.49.1:5000/mywebserver2:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8082
